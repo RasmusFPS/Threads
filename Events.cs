@@ -17,23 +17,27 @@ namespace Threads
 
             if (chance == 1)
             {
-                car.Problem = $"{car.Name} Behöver tanka!";
-                Thread.Sleep(15000);
+                Console.WriteLine($"{car.Name} Behöver tanka, stannar 15 sekunder");
+                car.Stopped = true;
+                car.Wait = 15;
             }
             else if (chance >= 2 && chance <= 3)
             {
-                car.Problem = $"{car.Name} Fick punktering!";             
-                Thread.Sleep(10000);
+                Console.WriteLine($"{car.Name} Behöver byta däck, stannar 10 sekunder");
+                car.Stopped = true;
+                car.Wait = 10;
             }
             else if(chance >= 4 && chance <= 8)
             {
-                car.Problem = $"{car.Name} Fick en Fågel på vindruttan!";
-                Thread.Sleep(5000);
+                Console.WriteLine($"{car.Name} Behöver tvätta vindrutan, stannar 5 sekunder");
+                car.Stopped = true;
+                car.Wait = 15;
             }
             else if (chance >= 9 && chance <= 18)
             {
+                Console.WriteLine($"{car.Name} Hastigheten på bilen sänks med 1 km/h");
+                car.Stopped = true;
                 car.Speed--;
-                car.Problem = $"{car.Name} FICK MOTORSTOP! Nu har den sänks deras hastighet permanent till {car.Speed}";
             }
 
 
